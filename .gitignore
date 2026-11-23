@@ -1,0 +1,9 @@
+ТЗ.txt
+/DEMO.md
+.env
+.env.*
+!.env.example
+node_modules/
+dist/
+backend/src/generated/
+*.tsbuildinfo
