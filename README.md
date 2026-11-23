@@ -12,7 +12,7 @@ docker compose up --build
 
 Откройте [http://localhost:8080](http://localhost:8080). Порт можно изменить через `APP_PORT` в `.env`. Compose дождётся готовности PostgreSQL, применит миграции Prisma и запустит NestJS и Nginx. `docker compose down` остановит приложение. Данные останутся в именованном томе и будут доступны при следующем запуске.
 
-Nginx раздаёт сборку React и передаёт запросы `/api/` в NestJS. `TasksModule` отвечает за CRUD и фильтрацию. Контроллер принимает DTO, сервис проверяет операцию, а репозиторий работает с PostgreSQL через `PrismaModule`. `AiModule` отвечает за генерацию подзадач, `HealthModule` проверяет доступность базы. Эти модули подключаются в `AppModule`.
+Nginx раздаёт сборку React и передаёт запросы `/api/` в NestJS. `TasksModule` отвечает за CRUD и фильтрацию. Контроллер принимает DTO, сервис проверяет операцию, а репозиторий работает с PostgreSQL через `PrismaModule`. `AiModule` отвечает за генерацию подзадач, `HealthModule` проверяет доступность базы. Функциональные модули находятся в `backend/src/modules/` и подключаются в `AppModule`.
 
 ## API
 

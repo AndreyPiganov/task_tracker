@@ -1,5 +1,5 @@
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
-import type { TaskStatus } from '../generated/prisma/enums';
+import type { TaskStatus } from '../../generated/prisma/enums';
 import type { UpdateTaskDto } from './dto/update-task.dto';
 import { TasksRepository } from './tasks.repository';
 

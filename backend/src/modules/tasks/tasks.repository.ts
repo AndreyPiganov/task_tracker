@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import type { Task, TaskStatus } from '../generated/prisma/client';
-import { PrismaService } from '../prisma/prisma.service';
+import type { Task, TaskStatus } from '../../generated/prisma/client';
+import { PrismaService } from '../../prisma/prisma.service';
 
 type TaskUpdate = Partial<Pick<Task, 'title' | 'status'>>;
 

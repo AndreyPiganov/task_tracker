@@ -1,6 +1,6 @@
 import { IsEnum, ValidateIf } from 'class-validator';
-import { TaskStatus } from '../../generated/prisma/enums';
-import { IsTaskTitle } from '../../common/validation/task-title.decorator';
+import { TaskStatus } from '../../../generated/prisma/enums';
+import { IsTaskTitle } from '../../../common/validation/task-title.decorator';
 
 export class UpdateTaskDto {
   @ValidateIf((_, value) => value !== undefined)
