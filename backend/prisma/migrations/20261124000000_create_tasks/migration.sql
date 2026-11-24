@@ -1,0 +1,7 @@
+CREATE TABLE "Task" (
+    "id" TEXT NOT NULL PRIMARY KEY,
+    "title" TEXT NOT NULL,
+    "status" TEXT NOT NULL DEFAULT 'NEW' CHECK ("status" IN ('NEW', 'IN_PROGRESS', 'DONE')),
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME NOT NULL
+);
