@@ -11,7 +11,8 @@
     "backend": {
       "root": "backend",
       "framework": "nestjs",
-      "outputDirectory": "dist",
+      "entrypoint": "src/main.ts",
+      "outputDirectory": ".",
       "installCommand": "npm ci",
       "buildCommand": "npm run build && npm run db:migrate:turso"
     }
