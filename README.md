@@ -14,6 +14,12 @@ docker compose up --build
 
 Nginx работает отдельным сервисом и принимает запросы на порту приложения. Он передаёт `/api/` в NestJS, а остальные запросы — сервису `frontend`, который раздаёт сборку React. Конфигурация прокси находится в `infra/default.conf`. `TasksModule` отвечает за CRUD и фильтрацию. Контроллер принимает DTO, сервис проверяет операцию, а репозиторий работает с SQLite через `PrismaModule`. `AiModule` отвечает за генерацию подзадач, `HealthModule` проверяет доступность базы. Функциональные модули находятся в `backend/src/modules/` и подключаются в `AppModule`.
 
+## Vercel
+
+Корневой `vercel.json` описывает два сервиса одного проекта: `frontend` (React/Vite) и `backend` (NestJS). Укажите Root Directory `.` и Node.js 24.x. Уберите прежние ручные переопределения команд сборки и каталога результата в настройках проекта. Запросы `/api/*` направляются в NestJS на том же домене.
+
+Текущая реализация Prisma использует локальный файл SQLite. Для постоянного хранения задач в Vercel Functions потребуется подключить внешнее хранилище. Для запуска с существующим файлом базы используйте Docker Compose. [Vercel Services](https://vercel.com/docs/services) · [Файловая система Vercel Functions](https://vercel.com/docs/functions/runtimes)
+
 ## API
 
 | Метод и адрес | Данные и результат |
