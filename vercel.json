@@ -13,7 +13,7 @@
       "framework": "nestjs",
       "entrypoint": "src/main.ts",
       "installCommand": "npm ci && npx --no-install prisma generate",
-      "buildCommand": "npm run build"
+      "buildCommand": "npm run build && npm run db:migrate:turso"
     }
   },
   "rewrites": [

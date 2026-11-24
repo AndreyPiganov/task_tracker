@@ -6,13 +6,16 @@
   "scripts": {
     "build": "prisma generate && tsc -p tsconfig.json",
     "start": "node dist/main.js",
+    "db:migrate:turso": "node scripts/migrate-turso.mjs",
     "db:migrate": "prisma migrate deploy"
   },
   "dependencies": {
+    "@libsql/client": "0.17.0",
     "@nestjs/common": "11.2.10",
     "@nestjs/core": "11.2.10",
     "@nestjs/platform-express": "11.2.10",
     "@prisma/adapter-better-sqlite3": "7.10.1",
+    "@prisma/adapter-libsql": "7.10.1",
     "@prisma/client": "7.10.1",
     "class-transformer": "0.5.1",
     "class-validator": "0.15.1",

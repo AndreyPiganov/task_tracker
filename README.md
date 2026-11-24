@@ -18,7 +18,7 @@ Nginx работает отдельным сервисом и принимает
 
 Корневой `vercel.json` описывает два сервиса одного проекта: `frontend` (React/Vite) и `backend` (NestJS). Укажите Root Directory `.` и Node.js 24.x. Уберите прежние ручные переопределения команд сборки и каталога результата в настройках проекта. Запросы `/api/*` направляются в NestJS на том же домене.
 
-Текущая реализация Prisma использует локальный файл SQLite. Для постоянного хранения задач в Vercel Functions потребуется подключить внешнее хранилище. Для запуска с существующим файлом базы используйте Docker Compose. [Vercel Services](https://vercel.com/docs/services) · [Файловая система Vercel Functions](https://vercel.com/docs/functions/runtimes)
+Подключите Turso Cloud к проекту Vercel. Для окружения, в котором выполняется деплой, должны быть доступны `TURSO_DATABASE_URL` и `TURSO_AUTH_TOKEN`. NestJS передаёт их адаптеру Prisma для libSQL. При сборке бэкенда команда `npm run db:migrate:turso` применяет SQL-миграции из `backend/prisma/migrations/` и отмечает выполненные в таблице `_tracker_migrations`. Для проверки после деплоя откройте `/api/health`, затем создайте задачу и обновите страницу. Docker Compose использует локальный файл SQLite. [Turso Cloud в Vercel](https://vercel.com/marketplace/tursocloud/database)
 
 ## API
 
